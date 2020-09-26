@@ -4,10 +4,15 @@ import AppList from './AppList';
 const HomePage = () => (
   <div>
     <h1>
-      Yantra abhyāsa
+      Aabhyasa Client
     </h1>
     <p>
-      <i><small> =Machine Learning</small></i>
+      <i>
+        <small>
+          <b>abhyāsa</b>
+          =Learning
+        </small>
+      </i>
       {' '}
       <i><small>(in Sanskrit language)</small></i>
     </p>

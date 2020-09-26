@@ -1,0 +1,47 @@
+# Development Setup
+
+This UI App talks to the server [https://sravan-abhyasa.herokuapp.com/dog-breed-detector](https://sravan-abhyasa.herokuapp.com/dog-breed-detector)
+
+To setup server locally, follow [https://github.com/sravanrekandar/abhyasa](https://github.com/sravanrekandar/abhyasa)
+
+## Clone this repo
+
+  ```bash
+  git clone https://github.com/sravanrekandar/abhyasa-client.git && cd abhyasa-client
+  ```
+
+## Install dependencies using npm or yarn
+
+```bash
+npm install
+```
+
+or
+
+```bash
+yarn install
+```
+
+## Start the server
+
+```bash
+npm run start
+```
+
+## Linting
+
+```bash
+npm run lint
+```
+
+## Testing
+
+```bash
+npm test
+```
+
+## Build the app
+
+```bash
+npm run build
+```

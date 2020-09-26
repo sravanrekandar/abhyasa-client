@@ -2,7 +2,8 @@
 import { faTimes, faUpload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import axios from 'axios';
+import clsx from 'clsx';
+import ustring from 'ustring';
 import beagleImg from '../../images/beagle.jpg';
 import dalmatianImg from '../../images/dalmatian.jpg';
 import dobermanImg from '../../images/doberman.jpg';
@@ -16,30 +17,41 @@ export default class DogBreedDetector extends React.PureComponent {
     this.state = {
       imageUrl: '',
       imageName: '',
-      prediction: '',
-      imageBlob: null,
+      prediction: null,
     };
   }
 
-  onPredict() {
-    const { imageBlob } = this.state;
+  onPredict(imageBlob, imageName) {
     const formData = new FormData();
-    formData.append('image', imageBlob);
-    axios.post(
-      'https://sravan-abhyasa.herokuapp.com/dog-breed-detector',
-      formData,
-    ).then((res) => {
-      // console.log('success', res);
-    }).catch((res) => {
-      // console.log('failure', res);
-    });
+
+    // TODO: Make the paths readable from .env
+    const apiUrl = 'https://sravan-abhyasa.herokuapp.com/dog-breed-detector';
+    // const apiUrl = 'http://localhost:8085/dog-breed-detector';
+
+    formData.append('File', imageBlob, imageName);
+
+    fetch(apiUrl, {
+      method: 'POST',
+      mode: 'cors',
+      body: formData,
+    })
+      .then((r) => r.json())
+      .then((res) => {
+        this.setState({
+          prediction: res,
+        });
+      }).catch((res) => {
+        // Notification to be shown
+        // eslint-disable-next-line no-console
+        console.log('Failure', res);
+      });
   }
 
   onClearImage() {
     this.setState({
       imageUrl: '',
       imageName: '',
-      prediction: '',
+      prediction: null,
     });
   }
 
@@ -49,19 +61,24 @@ export default class DogBreedDetector extends React.PureComponent {
     if (!filePath) {
       return;
     }
-    const fileName = filePath.split('\\')[filePath.split('\\').length - 1];
+
+    const imageName = filePath.split('\\')[filePath.split('\\').length - 1];
+    const imageBlob = e.target.files[0];
+
     this.setState({
       imageUrl: URL.createObjectURL(e.target.files[0]),
-      imageName: fileName,
-      imageBlob: e.target.files[0],
+      imageName,
+      // imageBlob,
     });
+
+    this.onPredict(imageBlob, imageName);
   }
 
   renderKnownDogTypes() {
     return (
       <ul className="list-inline">
         <li className="list-inline-item">
-          <div className="card" style={{ width: '10rem' }}>
+          <div className="card" style={{ width: '150px' }}>
             <img src={beagleImg} className="card-img-top" alt="Beagle" />
             <div className="card-body">
               <h5 className="card-title text-center">Beagle</h5>
@@ -69,7 +86,7 @@ export default class DogBreedDetector extends React.PureComponent {
           </div>
         </li>
         <li className="list-inline-item">
-          <div className="card" style={{ width: '10rem' }}>
+          <div className="card" style={{ width: '150px' }}>
             <img src={dalmatianImg} className="card-img-top" alt="Dalmatian" />
             <div className="card-body">
               <h5 className="card-title text-center">Dalmatian</h5>
@@ -77,7 +94,7 @@ export default class DogBreedDetector extends React.PureComponent {
           </div>
         </li>
         <li className="list-inline-item">
-          <div className="card" style={{ width: '10rem' }}>
+          <div className="card" style={{ width: '150px' }}>
             <img src={dobermanImg} className="card-img-top" alt="Doberman" />
             <div className="card-body">
               <h5 className="card-title text-center">Doberman</h5>
@@ -104,6 +121,33 @@ export default class DogBreedDetector extends React.PureComponent {
           />
         </div>
       </form>
+    );
+  }
+
+  renderPredictionResult() {
+    const { prediction } = this.state;
+    return (
+      <div className={
+        clsx('p-5 text-white h-100', {
+          'bg-success': prediction.success,
+          'bg-danger': !prediction.success,
+        })
+      }
+      >
+        <div>
+          <b>
+            {prediction.success ? 'Predicted Value!' : 'Error!'}
+          </b>
+          <h2>
+            {
+              prediction.success
+                ? ustring.humanize(prediction.breed)
+                : ustring.humanize(prediction.message)
+            }
+
+          </h2>
+        </div>
+      </div>
     );
   }
 
@@ -151,12 +195,7 @@ export default class DogBreedDetector extends React.PureComponent {
                   {
                     prediction && (
                       <div className="col-6">
-                        <div className="p-5 bg-success text-white h-100">
-                          <b>
-                            Predicted Value!
-                          </b>
-                          <h2>Beagle</h2>
-                        </div>
+                        {this.renderPredictionResult()}
                       </div>
                     )
                   }

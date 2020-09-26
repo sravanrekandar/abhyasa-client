@@ -38,6 +38,7 @@
     "@hot-loader/react-dom": "16.10.2",
     "axios": "0.20.0",
     "bootstrap": "4.5.2",
+    "clsx": "1.1.1",
     "connected-react-router": "6.5.2",
     "core-js": "3.6.5",
     "object-assign": "4.1.1",
@@ -47,7 +48,8 @@
     "react-router-dom": "5.1.2",
     "reactstrap": "8.6.0",
     "redux": "4.0.4",
-    "redux-thunk": "2.3.0"
+    "redux-thunk": "2.3.0",
+    "ustring": "1.4.1"
   },
   "devDependencies": {
     "@babel/cli": "7.6.4",

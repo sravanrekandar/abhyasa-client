@@ -2499,6 +2499,11 @@ clone-deep@^4.0.1:
     kind-of "^6.0.2"
     shallow-clone "^3.0.0"
 
+clsx@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/clsx/-/clsx-1.1.1.tgz#98b3134f9abbdf23b2663491ace13c5c03a73188"
+  integrity sha512-6/bPho624p3S2pMyvP5kKBPXnI3ufHLObBFCfgx+LkeR5lg2XYy2hqZqUf45ypD8COn2bhgGJSUE+l5dhNBieA==
+
 co@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/co/-/co-4.6.0.tgz#6ea6bdf3d853ae54ccb8e47bfa0bf3f9031fb184"
@@ -4408,6 +4413,13 @@ functional-red-black-tree@^1.0.1:
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
 
+functionally@~0.x.x:
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/functionally/-/functionally-0.6.2.tgz#ba9b4ac4dec0807dec289c251b3f5651599d32d3"
+  integrity sha1-uptKxN7AgH3sKJwlGz9WUVmdMtM=
+  dependencies:
+    newify "~1.1.9"
+
 functions-have-names@^1.2.0:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/functions-have-names/-/functions-have-names-1.2.1.tgz#a981ac397fa0c9964551402cdc5533d7a4d52f91"
@@ -4890,6 +4902,11 @@ https-browserify@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
   integrity sha1-7AbBDgo0wPL68Zn3/X/Hj//QPHM=
+
+i-s@~1.x.x:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/i-s/-/i-s-1.2.3.tgz#062cf72c85f766e0a198d2ccd679b525b5d2d203"
+  integrity sha1-Biz3LIX3ZuChmNLM1nm1JbXS0gM=
 
 i@0.3.x:
   version "0.3.6"
@@ -6649,6 +6666,11 @@ neo-async@^2.5.0, neo-async@^2.6.1:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
+
+newify@~1.1.9:
+  version "1.1.9"
+  resolved "https://registry.yarnpkg.com/newify/-/newify-1.1.9.tgz#3f599bd1d44a4c38851a1bd25bbb6f7c4d72d8ff"
+  integrity sha1-P1mb0dRKTDiFGhvSW7tvfE1y2P8=
 
 nice-try@^1.0.4:
   version "1.0.5"
@@ -10055,6 +10077,14 @@ use@^3.1.0:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/use/-/use-3.1.1.tgz#d50c8cac79a19fbc20f2911f56eb973f4e10070f"
   integrity sha512-cwESVXlO3url9YWlFW/TA9cshCEhtu7IKJ/p5soJ/gGpj7vbvFrAY/eIioQ6Dw23KjZhYgiIo8HOs1nQ2vr/oQ==
+
+ustring@1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/ustring/-/ustring-1.4.1.tgz#27d71bb7b901d5c66b10bcc9f0e332f0a97dcf2a"
+  integrity sha1-J9cbt7kB1cZrELzJ8OMy8Kl9zyo=
+  dependencies:
+    functionally "~0.x.x"
+    i-s "~1.x.x"
 
 util-deprecate@^1.0.1, util-deprecate@^1.0.2, util-deprecate@~1.0.1:
   version "1.0.2"

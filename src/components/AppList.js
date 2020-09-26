@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const appListData = [
   {
     id: 'dog-app',
-    type: 'Vision, ML, FastAI',
+    type: 'ML, FastAI, Vision',
     title: 'Dog Breed Detector App',
     description: 'This App contains a trained Learner(a.k.a model) that can detect the dog type by accepting a dog image',
   },
