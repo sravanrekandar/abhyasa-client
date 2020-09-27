@@ -6,7 +6,7 @@
     "node": ">=12",
     "npm": ">=6"
   },
-  "homepage": "https://sravanrekandar.github.io/abhyasa-client",
+  "homepage": "/abhyasa-client",
   "scripts": {
     "preinstall": "node tools/nodeVersionCheck.js",
     "start-message": "babel-node tools/startMessage.js",
