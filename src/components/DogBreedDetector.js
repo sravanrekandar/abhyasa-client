@@ -7,6 +7,7 @@ import ustring from 'ustring';
 import beagleImg from '../../images/beagle.jpg';
 import dalmatianImg from '../../images/dalmatian.jpg';
 import dobermanImg from '../../images/doberman.jpg';
+import preloaderImg from '../../images/pre-loader.gif';
 
 export default class DogBreedDetector extends React.PureComponent {
   constructor(props) {
@@ -15,9 +16,10 @@ export default class DogBreedDetector extends React.PureComponent {
     this.onFileChange = this.onFileChange.bind(this);
     this.onClearImage = this.onClearImage.bind(this);
     this.state = {
-      imageUrl: '',
+      imageUrl: '...',
       imageName: '',
       prediction: null,
+      predicting: true,
     };
   }
 
@@ -29,7 +31,9 @@ export default class DogBreedDetector extends React.PureComponent {
     // const apiUrl = 'http://localhost:8085/dog-breed-detector';
 
     formData.append('File', imageBlob, imageName);
-
+    this.setState({
+      predicting: true,
+    });
     fetch(apiUrl, {
       method: 'POST',
       mode: 'cors',
@@ -39,6 +43,7 @@ export default class DogBreedDetector extends React.PureComponent {
       .then((res) => {
         this.setState({
           prediction: res,
+          predicting: false,
         });
       }).catch((res) => {
         // Notification to be shown
@@ -52,6 +57,7 @@ export default class DogBreedDetector extends React.PureComponent {
       imageUrl: '',
       imageName: '',
       prediction: null,
+      predicting: false,
     });
   }
 
@@ -152,7 +158,9 @@ export default class DogBreedDetector extends React.PureComponent {
   }
 
   render() {
-    const { imageUrl, imageName, prediction } = this.state;
+    const {
+      imageUrl, imageName, prediction, predicting,
+    } = this.state;
     return (
       <div>
         <h2>Dog Breed Detector</h2>
@@ -192,6 +200,15 @@ export default class DogBreedDetector extends React.PureComponent {
                     </h4>
                     <img alt={imageName} src={imageUrl} width="45%" />
                   </div>
+                  {
+                    predicting && (
+                      <div className="col-6 text-center">
+                        <span>Predicting...</span>
+                        <br />
+                        <img alt="Predicting..." src={preloaderImg} width="150" height="150" />
+                      </div>
+                    )
+                  }
                   {
                     prediction && (
                       <div className="col-6">
