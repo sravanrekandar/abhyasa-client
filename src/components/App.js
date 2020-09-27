@@ -1,5 +1,5 @@
 /* eslint-disable import/no-named-as-default */
-import { Switch } from 'react-router-dom';
+import { Switch, HashRouter } from 'react-router-dom';
 
 import React from 'react';
 import { hot } from 'react-hot-loader';
@@ -15,9 +15,11 @@ class App extends React.PureComponent {
     return (
       <div className="container">
         <Header />
-        <Switch>
-          {routes}
-        </Switch>
+        <HashRouter>
+          <Switch>
+            {routes}
+          </Switch>
+        </HashRouter>
       </div>
     );
   }
