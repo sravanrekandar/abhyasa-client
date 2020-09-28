@@ -182,7 +182,7 @@ export default class DogBreedDetector extends React.PureComponent {
             {
               imageUrl && (
                 <div className="row">
-                  <div className="col-6">
+                  <div className="col-md-6 col-xs-12">
                     <h4>
                       <span className="text-muted">File Name:</span>
                       {imageName}
@@ -201,7 +201,7 @@ export default class DogBreedDetector extends React.PureComponent {
                   </div>
                   {
                     predicting && (
-                      <div className="col-6 text-center text-info">
+                      <div className="col-md-6 col-xs-12 text-center text-info">
                         <span>Predicting...</span>
                         <br />
                         <div className="spinner-border" role="status">
@@ -212,7 +212,7 @@ export default class DogBreedDetector extends React.PureComponent {
                   }
                   {
                     prediction && (
-                      <div className="col-6">
+                      <div className="col-md-6 col-xs-12">
                         {this.renderPredictionResult()}
                       </div>
                     )
