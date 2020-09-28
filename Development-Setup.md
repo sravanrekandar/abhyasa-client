@@ -45,3 +45,7 @@ npm test
 ```bash
 npm run build
 ```
+
+## Deployment
+
+This app is configured with github actions. The actions will take care to deploy the app to [GH Pages](https://pages.github.com)

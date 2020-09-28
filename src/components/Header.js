@@ -17,7 +17,7 @@ export default function Header() {
   return (
     <div>
       <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">abhyāsa client</NavbarBrand>
+        <NavbarBrand href="/">Abhyāsa client</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
