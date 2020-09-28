@@ -7,7 +7,6 @@ import ustring from 'ustring';
 import beagleImg from '../../images/beagle.jpg';
 import dalmatianImg from '../../images/dalmatian.jpg';
 import dobermanImg from '../../images/doberman.jpg';
-import preloaderImg from '../../images/pre-loader.gif';
 
 export default class DogBreedDetector extends React.PureComponent {
   constructor(props) {
@@ -202,10 +201,12 @@ export default class DogBreedDetector extends React.PureComponent {
                   </div>
                   {
                     predicting && (
-                      <div className="col-6 text-center">
+                      <div className="col-6 text-center text-info">
                         <span>Predicting...</span>
                         <br />
-                        <img alt="Predicting..." src={preloaderImg} width="150" height="150" />
+                        <div className="spinner-border" role="status">
+                          <span className="sr-only">Loading...</span>
+                        </div>
                       </div>
                     )
                   }
