@@ -16,10 +16,10 @@ export default class DogBreedDetector extends React.PureComponent {
     this.onFileChange = this.onFileChange.bind(this);
     this.onClearImage = this.onClearImage.bind(this);
     this.state = {
-      imageUrl: '...',
+      imageUrl: '',
       imageName: '',
       prediction: null,
-      predicting: true,
+      predicting: false,
     };
   }
 
